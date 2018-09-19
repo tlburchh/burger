@@ -8,17 +8,16 @@ var burger = {
         });
     },
     create: function(name, cb) {
-        orm.create("burgers", [
-            "burger_name", "devoured"
-        ],
-        [name, false], cb);
+        orm.create("burgers", "burger_name", val, function(res){
+            cb(res);
+        });
         
     },
     update: function(objColVals, condition, cb){
         orm.update("burgers", objColVals, condition, function(res){
             cb(res);
         });
-    }
+    },
 
 };
 
